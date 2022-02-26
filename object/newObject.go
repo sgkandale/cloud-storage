@@ -29,11 +29,11 @@ func NewObject(name, objectType string, parent_folder_id, owner_id int64) (*Obje
 		CreatedAt:      time.Now().Unix(),
 		CreatedAtStr:   time.Now().Format("2006-01-02 15:04:05"),
 		OwnerId:        owner_id,
-		FileLink:       "https://soaringeagle.biz/wp-content/uploads/2018/04/What-is-Cloud-Storage.png",
 	}
 
 	if strings.EqualFold(objectType, "file") {
 		newObject.ObjectType = "File"
+		newObject.FileLink = "https://soaringeagle.biz/wp-content/uploads/2018/04/What-is-Cloud-Storage.png"
 	} else if strings.EqualFold(objectType, "folder") {
 		newObject.ObjectType = "Folder"
 	} else {

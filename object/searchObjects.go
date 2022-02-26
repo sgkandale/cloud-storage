@@ -3,7 +3,6 @@ package object
 import (
 	"context"
 	"errors"
-	"fmt"
 	"log"
 	"time"
 
@@ -16,8 +15,8 @@ func SearchObjects(query string, owner_id int64) ([]*Object, error) {
 		context.TODO(),
 		`SELECT id, name, parent_folder_id, object_type, created_at, owner_id
 		 FROM objects 
-		 WHERE name LIKE $1 AND owner_id = $2`,
-		fmt.Sprintf("%%%s%%", query),
+		 WHERE name LIKE '%`+query+`%' AND owner_id = $1`,
+		// query,
 		owner_id,
 	)
 
