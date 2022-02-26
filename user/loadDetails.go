@@ -14,17 +14,18 @@ func (user *User) LoadDetails() error {
 
 	row := database.DB.QueryRow(
 		context.TODO(),
-		"SELECT password FROM users WHERE username = $1",
+		"SELECT id, password FROM users WHERE username = $1",
 		user.Username,
 	)
 
 	err := row.Scan(
+		&user.Id,
 		&user.PasswordHash,
 	)
 
 	if err != nil {
 		if err == pgx.ErrNoRows {
-			return errors.New("item not found")
+			return errors.New("user not found")
 		}
 		log.Println("user.LoadDetails() : ", err)
 		return errors.New("something went wrong")

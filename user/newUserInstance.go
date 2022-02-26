@@ -1,6 +1,9 @@
 package user
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func NewUserInstance(username, password string) (*User, error) {
 
@@ -21,5 +24,7 @@ func NewUserInstance(username, password string) (*User, error) {
 	return &User{
 		Username:     username,
 		PasswordText: password,
+		CreatedAt:    time.Now().Unix(),
+		CreatedAtStr: time.Now().Format("2006-01-02 15:04:05"),
 	}, nil
 }
