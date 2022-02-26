@@ -2,12 +2,13 @@ package server
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"strconv"
 
 	"cloud_storage/object"
 	"cloud_storage/user"
+
+	"github.com/gorilla/mux"
 )
 
 func DeleteObject(w http.ResponseWriter, r *http.Request) {
@@ -18,10 +19,9 @@ func DeleteObject(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	r.ParseForm()
+	vars := mux.Vars(r)
+	objectId := vars["objectId"]
 
-	objectId := r.Form.Get("objectId")
-	log.Println("objectId : ", objectId)
 	if objectId == "" {
 		http.Error(w, "objectId is required", http.StatusBadRequest)
 		return

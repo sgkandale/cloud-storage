@@ -20,12 +20,12 @@ func StartServer() {
 	muxRouter.HandleFunc("/folder", GetObjectDetails).Methods("GET")
 	muxRouter.HandleFunc("/folder/{objectId}", GetObjectDetails).Methods("GET")
 	muxRouter.HandleFunc("/folder/{objectId}", DeleteObject).Methods("DELETE")
-	muxRouter.HandleFunc("/folder/{objectId}", CreateFolder).Methods("POST")
+	muxRouter.HandleFunc("/folder", CreateFolder).Methods("POST")
 	muxRouter.HandleFunc("/folder/{objectId}", MoveObject).Methods("PATCH")
 
-	muxRouter.HandleFunc("/file", GetObjectDetails).Methods("GET")
+	muxRouter.HandleFunc("/file/{objectId}", GetObjectDetails).Methods("GET")
 	muxRouter.HandleFunc("/file/{objectId}", DeleteObject).Methods("DELETE")
-	muxRouter.HandleFunc("/file/{parentId}", nil).Methods("POST")
+	muxRouter.HandleFunc("/file/{parentId}", UploadFile).Methods("POST")
 
 	muxRouter.HandleFunc("/search", SearchObjects).Methods("POST")
 

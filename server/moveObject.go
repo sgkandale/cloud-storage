@@ -7,6 +7,8 @@ import (
 
 	"cloud_storage/object"
 	"cloud_storage/user"
+
+	"github.com/gorilla/mux"
 )
 
 func MoveObject(w http.ResponseWriter, r *http.Request) {
@@ -18,7 +20,8 @@ func MoveObject(w http.ResponseWriter, r *http.Request) {
 	}
 
 	r.ParseForm()
-	objectId := r.Form.Get("objectId")
+	vars := mux.Vars(r)
+	objectId := vars["objectId"]
 	if objectId == "" {
 		http.Error(w, "objectId is required", http.StatusBadRequest)
 		return

@@ -49,6 +49,11 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if parentFolder.ObjectType != "Folder" {
+		http.Error(w, "parentFolderId is not a folder", http.StatusBadRequest)
+		return
+	}
+
 	if parentFolder.OwnerId != decodedToken.Id && parentFolder.OwnerId != 0 {
 		http.Error(w, "you do not own the parent folder", http.StatusUnauthorized)
 		return

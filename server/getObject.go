@@ -2,12 +2,13 @@ package server
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 	"strconv"
 
 	"cloud_storage/object"
 	"cloud_storage/user"
+
+	"github.com/gorilla/mux"
 )
 
 func GetObjectDetails(w http.ResponseWriter, r *http.Request) {
@@ -18,11 +19,9 @@ func GetObjectDetails(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	r.ParseForm()
-
 	objectIdInt := decodedToken.Id
-	objectId := r.Form.Get("objectId")
-	log.Println("objectId : ", objectId)
+	vars := mux.Vars(r)
+	objectId := vars["objectId"]
 
 	if objectId != "" {
 		objectIdInt, err = strconv.ParseInt(objectId, 10, 64)
