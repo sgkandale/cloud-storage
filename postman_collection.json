@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "a74e39f7-98fb-47a7-9312-c9fff8d3183a",
+		"name": "cloud-storage-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "username",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Folder Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:8080/folder/1000000016",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"folder",
+						"1000000016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Folder",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/folder/1000000016",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"folder",
+						"1000000016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Move Folder",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "targetFolderId",
+							"value": "1000000014",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/folder/1000000015",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"folder",
+						"1000000015"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Folder In Root",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "folderName",
+							"value": "test folder 4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/folder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Folder In Another Folder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "folderName",
+							"value": "new name",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/folder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get File Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/file/1000000016",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						"1000000016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete File",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/file/1000000016",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						"1000000016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/Shantanu/AppData/Local/Postman/app-8.11.1/chrome_200_percent.pak"
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/file/1000000016",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						"1000000016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU4NzYyNDQsImlhdCI6MTY0NTg2OTA0NCwiaWQiOjEwMDAwMDAxMCwiaXNzIjoic2drYW5kYWxlLWNsb3VkLXN0b3JhZ2UiLCJ1c2VybmFtZSI6InVzZXJuYW1lIn0._HxxdAHGpnipcqEKGCyAhRB1GuElvdK1WBPtwhGpva8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "query",
+							"value": "new",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/search",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
