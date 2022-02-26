@@ -26,12 +26,15 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// match password
+
 	jwtoken, err := userInstance.EncodeJWT()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	w.Write(
 		[]byte(
 			fmt.Sprintf(
