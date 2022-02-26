@@ -1,5 +1,5 @@
 # cloud-storage
-backend for cloud storage system
+simple backend for cloud storage system
 
 ### Configuration
 Modify config.yaml file to change the configuration
